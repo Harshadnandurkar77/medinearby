@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: #eff6ff;
+  }
+}
+
+@keyframes mediFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.medi-float {
+  animation: mediFloat 5s ease-in-out infinite;
+}
+
+@keyframes mediPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+.medi-pulse {
+  animation: mediPulse 0.7s ease-out infinite;
+}
+
+@keyframes mediSplitLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-70vw, -6vh) rotate(-30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes mediSplitRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(70vw, 6vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.medi-split-left {
+  animation:
+    mediSplitLeft 0.85s cubic-bezier(.3, .6, .35, 1)
+    forwards;
+}
+
+.medi-split-right {
+  animation:
+    mediSplitRight 0.85s cubic-bezier(.3, .6, .35, 1)
+    forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .medi-float {
+    animation: none !important;
+  }
+
+  .medi-pulse {
+    animation: none !important;
+  }
+
+  .medi-split-left,
+  .medi-split-right {
+    animation: none !important;
+  }
+}
